@@ -1,6 +1,6 @@
 1. Compile all modules
-make
+`make`
 2. Run tests
-make && make test
+`make && make test`
 3. Clear all binaries
-make clean
+`make clean`
