@@ -10,3 +10,6 @@ loop_test() ->
 
 out_of_bound_left_test()->
     ?assert(game:calculate_jumps([2,3,-4,1,3])=:= {ok, 2}).
+
+zero_length_list_test()->
+    ?assert(game:calculate_jumps([])=:= {ok, 0}).

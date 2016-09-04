@@ -3,7 +3,12 @@
 
 % Public
 % %%%%%%
--spec calculate_jumps(nonempty_list(integer())) -> atom() |  tuple().
+-spec calculate_jumps(List) -> atom() |  tuple() when
+    List :: nonempty_list(integer()).
+
+calculate_jumps([]) ->
+    {ok, 0};
+
 calculate_jumps(List) ->
 % We're converting given list to a tuple because a tuple has O(1) complexity 
 % for random element access while a list has O(N).
@@ -15,8 +20,12 @@ calculate_jumps(List) ->
 
 % Private
 % %%%%%%%
--spec calculate_jumps(integer(), integer(), integer(), tuple()) 
-                                                -> atom() |  tuple(). 
+-spec calculate_jumps(Position, Jumps, Length, Tuple) -> atom() |  tuple() when
+    Position :: integer(),
+    Jumps :: non_neg_integer(),
+    Length :: pos_integer(),
+    Tuple :: tuple(). 
+
 calculate_jumps(Position, Jumps, Length, _) 
         when Position > Length; Position =< 0 -> % if we out of array's bounds
     {ok, Jumps};
